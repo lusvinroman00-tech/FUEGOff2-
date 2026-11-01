@@ -1,2 +1,5 @@
 FUEGOff2 Creator Hub 17.1
-Sube index.html y ads.txt a la raíz del sitio. El guardado local funciona sin servidor. La sincronización entre dispositivos requiere una API HTTPS compatible y autenticación real. El servidor debe validar la identidad y los permisos de cada usuario.
+
+Sube index.html y ads.txt a la raíz del sitio. El guardado local funciona sin servidor. La sincronización entre dispositivos requiere una API HTTPS compatible y autenticación real. El servidor debe gestionar usuarios, sesiones y almacenamiento persistente con seguridad.
+
+La etiqueta meta de AdSense y el script ya están incluidos en <head> dentro de index.html. Esto prepara la base para monetización, pero no inserta anuncios visibles ni configura anuncios recompensados por sí solos. La aprobación final y la disponibilidad de anuncios dependen de Google.
