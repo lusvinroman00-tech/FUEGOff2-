@@ -1,0 +1,6 @@
+FUEGOff2 Creator Hub 16.3
+
+Sube index.html y ads.txt al directorio raíz de tu sitio.
+El campo Región donde juegas aparece solo al canjear recompensas externas. La región se envía a Administración junto con el ID y el videojuego.
+
+Google AdSense: se restauró el código de cuenta y el cargador que proporcionaste. La aparición de anuncios requiere que AdSense apruebe el sitio y que configures bloques/unidades publicitarias; estos códigos por sí solos no garantizan que se muestren anuncios.
