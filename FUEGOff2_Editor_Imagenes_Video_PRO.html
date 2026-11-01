@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070b16">
+  <title>FUEGOff2 · Diseñador de miniaturas</title>
+  <style>
+*{box-sizing:border-box} :root{--bg:#070b16;--panel:#0c1424;--panel2:#101b2d;--line:#26384e;--muted:#8e9bb0;--white:#f4f6fb;--red:#ff3d65;--orange:#ff9b45;--cyan:#4bd9e8;--green:#5de6ba}
+html{min-height:100%;background:var(--bg)}body{margin:0;color:var(--white);font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 8% 12%,#40142b66,transparent 32%),radial-gradient(ellipse at 85% 20%,#0b456455,transparent 36%),linear-gradient(135deg,#080b16,#050914 70%);min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.19;background-image:linear-gradient(#263b541c 1px,transparent 1px),linear-gradient(90deg,#263b541c 1px,transparent 1px);background-size:27px 27px}
+.ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none}.ambient i{position:absolute;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#eafaff,#607b9c 18%,#142b49 68%,#07101e);border:1px solid #8eb6d977;box-shadow:0 0 16px #51b8e522;opacity:.5}.ambient i:nth-child(1){top:13%;left:58%}.ambient i:nth-child(2){top:43%;left:91%;width:48px;height:48px}.ambient i:nth-child(3){top:72%;left:16%;width:24px;height:24px}.ambient i:nth-child(4){top:86%;left:76%;width:40px;height:40px}.ambient i:nth-child(5){top:32%;left:4%;width:22px;height:22px}.ambient i:nth-child(6){top:62%;left:53%;width:16px;height:16px}
+.app{position:relative;z-index:1;width:min(1380px,100%);margin:auto;padding:18px 22px 24px}
+.topbar{min-height:88px;border:1px solid #25384f;border-radius:17px;background:linear-gradient(105deg,#0b1020ed,#0a1929ed);display:flex;align-items:center;justify-content:space-between;padding:15px 20px;box-shadow:0 10px 32px #0005,inset 0 0 25px #16314b24}
+.brand{display:flex;align-items:center;gap:14px}.logo{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:20px;background:linear-gradient(145deg,#ff315f,#9a2b9c 60%,#2a5da8);border:1px solid #ff9aaf;box-shadow:0 0 20px #ff3d6550}.brand h1{font-size:22px;margin:0;letter-spacing:.1px}.brand h1 span{font-size:10px;color:#73cce4;letter-spacing:1px;margin-left:5px}.brand p{font-size:11px;color:#8b98ad;margin:7px 0 0}.online{font-size:9px;color:#ffbb7b;letter-spacing:1px;text-align:right;border:1px solid #684b3c;border-radius:30px;padding:9px 13px;background:#1b1a25}.online b{display:inline-block;width:6px;height:6px;background:#4be0b0;border-radius:50%;margin-right:5px}.online small{display:block;color:#54758a;margin-top:8px;font-size:8px}
+.welcome{margin-top:12px;border:1px solid #3b304b;border-radius:18px;padding:23px 26px;background:linear-gradient(110deg,#111526f2,#0c2032f2);box-shadow:0 14px 32px #0003;display:flex;justify-content:space-between;align-items:center;gap:22px}.eyebrow{font-size:9px;color:#70d8e8;letter-spacing:2px;font-weight:bold}.welcome h2{font-size:27px;margin:9px 0 8px}.welcome h2 em{font-style:normal;color:#ffad59}.welcome p{font-size:13px;color:#a1adc0;line-height:1.65;max-width:680px;margin:0}.welcome-stats{display:flex;gap:9px;flex-shrink:0}.welcome-stats div{min-width:105px;padding:13px 12px;border:1px solid #263a50;border-radius:12px;background:#08111f}.welcome-stats strong{display:block;color:#65e5bd;font-size:16px}.welcome-stats span{display:block;color:#8794a9;font-size:9px;margin-top:6px}
+.workspace{display:grid;grid-template-columns:205px minmax(0,1fr);gap:14px;margin-top:15px}.sidepanel{border:1px solid #25384d;border-radius:15px;background:linear-gradient(180deg,#0d1525f5,#080e1bf5);padding:14px;min-height:620px;display:flex;flex-direction:column}.side-title{display:flex;align-items:center;gap:10px;padding:5px 2px 15px;border-bottom:1px solid #243247}.side-icon{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#142d46;color:#6ce1e9}.side-title b{display:block;font-size:11px;letter-spacing:1px}.side-title small{font-size:8px;color:#71849c;letter-spacing:1.5px}.side-active{display:flex;align-items:center;gap:8px;margin-top:16px;padding:12px 10px;border:1px solid #e3427188;border-left:3px solid #ff3d70;border-radius:10px;background:linear-gradient(90deg,#5c1c3d88,#13324a);font-size:11px;font-weight:bold}.side-active b{margin-left:auto;color:#5ce2b4;font-size:8px}.side-note{font-size:10px;color:#9ba9bb;margin:16px 3px}.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#54e0ad;box-shadow:0 0 10px #54e0ad;margin-right:7px}.side-tip{margin-top:10px;border:1px solid #263a50;border-radius:10px;background:#0a1423;padding:12px}.side-tip b{font-size:9px;color:#ffb16b;letter-spacing:1px}.side-tip p{font-size:10px;line-height:1.55;color:#8e9bb0;margin:8px 0 0}.side-foot{margin-top:auto;padding-top:18px;font-size:11px;font-weight:bold;color:#dce7f5}.side-foot span{font-size:8px;color:#66c9df;letter-spacing:1px}.side-foot small{display:block;color:#60748c;font-size:8px;letter-spacing:1px;margin-top:5px}
+.editor{min-width:0}.section-heading{display:flex;justify-content:space-between;align-items:center;padding:7px 2px 15px;border-bottom:1px solid #26374c;gap:12px}.slash{color:#ff4a75;font-weight:900;font-size:19px;display:inline-block;margin-right:8px}.slash span{font-size:16px}.section-heading h2{display:inline;font-size:19px;margin:0}.section-heading p{font-size:11px;color:#8e9bb0;margin:7px 0 0}.tag{font-size:8px;color:#63d7c2;border:1px solid #27665d;border-radius:30px;padding:8px 10px;white-space:nowrap;background:#0b2829}
+.mode-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.mode-tabs button{border:1px solid #30465f;background:#0b1626;color:#aebed1;border-radius:10px;padding:11px 16px;font-weight:800;font-size:11px;cursor:pointer}.mode-tabs button.active{background:linear-gradient(100deg,#7b214c,#b63b4e);border-color:#ff6687;color:white;box-shadow:0 0 18px #ff477033}.tool-panel[hidden]{display:none!important}.image-workspace{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.15fr);gap:13px;align-items:start}.image-stage{min-height:350px}.image-stage canvas{display:block;width:100%;height:auto;max-height:70vh;object-fit:contain;background:#080f1c;border:2px solid #d98a47;border-radius:13px}.image-toolbar{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.image-toolbar button{font-size:10px;padding:10px}.editor-grid{display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);gap:13px;margin-top:14px;align-items:start}.card{border:1px solid #25384e;border-radius:15px;background:linear-gradient(145deg,#101a2bf5,#0a1221f5);padding:17px;box-shadow:0 12px 28px #0003;min-width:0}.card-heading{display:flex;align-items:center;gap:10px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid #24354a}.mini-icon{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:#ff8a9c;background:#40213a;border:1px solid #8e365d}.card-heading h3{font-size:14px;margin:0}.card-heading small{font-size:8px;letter-spacing:1.2px;color:#71879e;display:block;margin-top:5px}
+label{display:block;font-size:10px;color:#b6c2d3;margin:12px 0 6px;font-weight:bold}input,select{width:100%;min-width:0;height:40px;border:1px solid #2b4058;border-radius:9px;background:#091321;color:#e8edf6;padding:0 11px;font:12px Arial;outline:none}input:focus,select:focus{border-color:#e64b79;box-shadow:0 0 0 2px #e64b7922}input[type=color]{padding:4px;height:38px}input[type=range]{height:24px;padding:0;accent-color:#ff4770;background:transparent}input[type=file]{color:#aebbd0}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.range-value{font-size:9px;color:#6fdae3}.word-editor{margin-top:16px;padding:12px;border:1px solid #2b3d54;border-radius:11px;background:#091321}.subhead{display:flex;justify-content:space-between;gap:8px;align-items:center}.subhead b{font-size:10px}.subhead small{font-size:7px;color:#6e8ca5;letter-spacing:.8px}.word-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;min-height:26px}.word-chip{border:1px solid #3c536d;border-radius:7px;padding:6px 8px;background:#13243a;color:#dbe8f6;font-size:10px;cursor:pointer}.word-chip.active{border-color:#ff6485;background:#54223d;color:white}.muted{font-size:10px;color:#78889c}.color-row{display:flex;align-items:center;gap:9px}.color-row input{width:48px;flex:0 0 48px}.color-row span{font-size:9px;color:#8496ac}.small-btn{font-size:10px!important;padding:8px 10px!important;min-height:32px!important;margin-top:7px}
+button,.import-btn{border:1px solid #354a63;border-radius:9px;background:linear-gradient(110deg,#18324c,#25254b);color:#f3f6fb;padding:11px 13px;font-weight:bold;font-size:11px;cursor:pointer;transition:.18s;display:inline-flex;justify-content:center;align-items:center}button:hover,.import-btn:hover{filter:brightness(1.2);transform:translateY(-1px)}button:active{transform:translateY(0)}.primary{background:linear-gradient(100deg,#ff365e,#a52581);border-color:#ed5687;box-shadow:0 5px 18px #fa3b7133}.secondary{background:linear-gradient(100deg,#15364c,#202747)}.button-row{display:flex;gap:7px;margin-top:16px}.button-row button{flex:1;padding:10px 5px;font-size:9px}.full-btn{width:100%;margin-top:10px;min-height:44px}.hint{font-size:9px;line-height:1.5;color:#77889e;margin:10px 0 0}.upload-label{display:block;border:1px dashed #3d5870;border-radius:9px;padding:12px;text-align:center;color:#9bc9d8;background:#0a1b2b;cursor:pointer}.file-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.preview-card{min-height:470px}.canvas-wrap{position:relative;width:100%;overflow:hidden;border:2px solid #d98a47;border-radius:15px;background:#08101e;box-shadow:0 0 22px #f35b6330}.canvas-wrap canvas{display:block;width:100%;height:auto;aspect-ratio:var(--preview-ratio,16/9)}.canvas-corner{position:absolute;right:8px;bottom:7px;font-size:8px;color:#fff9;background:#08101d99;border:1px solid #ffffff33;border-radius:20px;padding:5px 7px}.preview-meta{display:flex;justify-content:space-between;gap:8px;color:#7e91a8;font-size:9px;margin-top:11px}.dot-green{display:inline-block;width:6px;height:6px;background:#5be3b6;border-radius:50%;margin-right:5px}.project-tools{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}.project-tools button,.project-tools .import-btn{font-size:9px;padding:10px}.import-btn{cursor:pointer}.history-box{margin-top:14px;padding:11px;border:1px solid #26394e;border-radius:9px;background:#091321}.history-box b{display:block;font-size:8px;color:#6fd4df;letter-spacing:1px;margin-bottom:5px}.history-box span{font-size:9px;color:#8c9bb0;line-height:1.4}footer{text-align:center;color:#61738b;font-size:8px;letter-spacing:1.3px;padding:24px 5px 0}footer span{color:#ff567a}#toast{position:fixed;z-index:10;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#132b3c;border:1px solid #4b8292;border-radius:10px;padding:11px 16px;color:#effaff;font-size:11px;box-shadow:0 10px 30px #0008;transition:.2s}#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.image-workspace{grid-template-columns:1fr}.image-stage{order:-1}.app{padding:12px}.workspace{grid-template-columns:165px minmax(0,1fr)}.sidepanel{padding:10px}.welcome{padding:18px}.welcome-stats div{min-width:85px}.editor-grid{grid-template-columns:1fr}.preview-card{order:-1}.preview-card .canvas-wrap{max-width:760px;margin:auto}}
+@media(max-width:620px){.app{padding:8px}.topbar{padding:11px;min-height:72px}.logo{width:44px;height:44px}.brand{gap:9px}.brand h1{font-size:17px}.brand h1 span{display:block;margin:4px 0 0;font-size:8px}.brand p{font-size:9px}.online{font-size:7px;padding:7px}.online small{font-size:7px}.welcome{display:block;padding:16px}.welcome h2{font-size:22px}.welcome p{font-size:11px}.welcome-stats{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr)}.welcome-stats div{min-width:0;padding:9px}.welcome-stats strong{font-size:12px}.welcome-stats span{font-size:8px}.workspace{display:block}.sidepanel{min-height:0;margin-bottom:12px;padding:10px}.side-title{padding-bottom:9px}.side-active{margin-top:9px;padding:10px}.side-note,.side-tip,.side-foot{display:none}.section-heading{align-items:flex-start}.section-heading h2{font-size:16px}.section-heading p{font-size:10px;line-height:1.5}.tag{font-size:7px;padding:6px}.editor-grid{margin-top:10px;gap:10px}.card{padding:13px}.preview-card{order:0;min-height:0}.controls{order:1}.two-col{gap:8px}.button-row{flex-wrap:wrap}.button-row button{min-width:28%}.project-tools>*{flex:1 1 42%}}
+@media(max-width:370px){.online{display:none}.welcome h2{font-size:20px}.section-heading{display:block}.tag{display:inline-block;margin-top:9px}.card-heading h3{font-size:13px}}
+
+.palette{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 12px}
+.palette button{width:25px;height:25px;min-height:25px;padding:0;border-radius:50%;background:var(--swatch);border:2px solid #d9e4f2;box-shadow:0 0 0 2px #101c2d;flex:0 0 25px}
+.palette button:focus{outline:2px solid #ff6b91;outline-offset:2px}
+</style>
+</head>
+<body>
+  <div class="ambient"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">F2</div>
+        <div><h1>FUEGOff2 <span>CREATOR HUB 17.0</span></h1><p>Miniaturas · Editor de imágenes y video</p></div>
+      </div>
+      <div class="online"><b></b> DISEÑADOR INDEPENDIENTE <small>LOCAL // LATAM</small></div>
+    </header>
+
+    <section class="welcome">
+      <div class="welcome-copy">
+        <div class="eyebrow">FUEGOff2 THUMBNAIL STUDIO</div>
+        <h2>Convierte tus ideas en <em>miniaturas.</em></h2>
+        <p>Crea miniaturas, edita imágenes y ajusta videos con herramientas locales. Tus archivos permanecen en tu dispositivo.</p>
+      </div>
+      <div class="welcome-stats">
+        <div><strong>1280 × 720</strong><span>Exportación HD</span></div>
+        <div><strong>16:9</strong><span>Formato de miniatura</span></div>
+        <div><strong>LOCAL</strong><span>Sin servidor</span></div>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <aside class="sidepanel">
+        <div class="side-title"><span class="side-icon">▣</span><div><b>DISEÑADOR</b><small>HERRAMIENTAS</small></div></div>
+        <div class="side-active">🖼️ <span>Diseñador de miniaturas</span><b>●</b></div>
+        <div class="side-note"><span class="pulse"></span> Editor listo para usar</div>
+        <div class="side-tip"><b>CONSEJO FUEGOff2</b><p>Usa frases cortas, alto contraste y un punto focal para que tu miniatura destaque incluso en pantallas pequeñas.</p></div>
+        <div class="side-foot">FUEGOff2 <span>THUMBNAIL PRO</span><small>VERSIÓN INDEPENDIENTE</small></div>
+      </aside>
+
+      <section class="editor">
+        <div class="section-heading">
+          <div><div class="slash">// <span>🖼️</span></div><h2>Diseñador de miniaturas</h2><p>Prepara el texto y la composición de una miniatura. Crea y descarga tu imagen final.</p></div>
+          <span class="tag">● EDITOR ACTIVO</span>
+        </div>
+
+        <div class="mode-tabs" role="tablist" aria-label="Apartados del diseñador">
+          <button type="button" class="active" id="tabThumb" role="tab" aria-selected="true">🖼️ Diseñador de miniaturas</button>
+          <button type="button" id="tabImage" role="tab" aria-selected="false">✂️ Editor de imágenes</button>
+          <button type="button" id="tabVideo" role="tab" aria-selected="false">🎬 Editor de video</button>
+        </div>
+        <div id="thumbPanel" class="tool-panel">
+        <div class="editor-grid">
+          <section class="card controls">
+            <div class="card-heading"><span class="mini-icon">✎</span><div><h3>Contenido y composición</h3><small>PERSONALIZA TU MINIATURA</small></div></div>
+            <label for="line1">Línea principal</label><input id="line1" maxlength="48" value="¡NUEVO EVENTO!" placeholder="Ej. ¡NUEVO EVENTO!">
+            <label for="line2">Segunda línea</label><input id="line2" maxlength="48" value="EN FREE FIRE" placeholder="Ej. EN FREE FIRE">
+            <label for="line3">Tercera línea</label><input id="line3" maxlength="48" value="RECOMPENSAS GRATIS" placeholder="Texto opcional">
+            <div class="word-editor">
+              <div class="subhead"><b>Edición individual por palabra</b><small>SELECCIONA UNA PALABRA</small></div>
+              <div id="wordList" class="word-list"><span class="muted">Escribe un texto para editar sus palabras.</span></div>
+              <label for="wordColor">Color de palabra seleccionada</label><div class="color-row"><input id="wordColor" type="color" value="#ffe36e"><span id="wordName">Ninguna palabra seleccionada</span></div><small class="range-value">Paleta rápida para la palabra seleccionada</small><div class="palette" data-palette-for="wordColor">
+              <button type="button" data-color="#ffffff" style="--swatch:#ffffff" aria-label="Blanco"></button>
+              <button type="button" data-color="#ff315f" style="--swatch:#ff315f" aria-label="Rojo"></button>
+              <button type="button" data-color="#ff8a00" style="--swatch:#ff8a00" aria-label="Naranja"></button>
+              <button type="button" data-color="#ffe34d" style="--swatch:#ffe34d" aria-label="Amarillo"></button>
+              <button type="button" data-color="#7dff4f" style="--swatch:#7dff4f" aria-label="Verde"></button>
+              <button type="button" data-color="#21e6d6" style="--swatch:#21e6d6" aria-label="Turquesa"></button>
+              <button type="button" data-color="#35a7ff" style="--swatch:#35a7ff" aria-label="Azul"></button>
+              <button type="button" data-color="#8d5bff" style="--swatch:#8d5bff" aria-label="Violeta"></button>
+              <button type="button" data-color="#ff62d2" style="--swatch:#ff62d2" aria-label="Rosa"></button>
+              <button type="button" data-color="#a66a3f" style="--swatch:#a66a3f" aria-label="Marrón"></button>
+            </div>
+              <button class="small-btn secondary" id="applyWord">Aplicar color a palabra</button>
+            </div>
+            <div class="two-col">
+              <div><label for="fontFamily">Tipografía</label><select id="fontFamily"><option value="Arial Black">Arial Black</option><option value="Impact">Impact</option><option value="Trebuchet MS">Trebuchet MS</option><option value="Georgia">Georgia</option></select></div>
+              <div><label for="fontSize">Tamaño del texto</label><input id="fontSize" type="range" min="42" max="112" value="78"><small class="range-value" id="fontSizeValue">78 px</small></div>
+            </div>
+            <label for="lineSpacing">↕ Interlineado (espacio entre líneas)</label>
+            <input id="lineSpacing" type="range" min="-40" max="70" step="2" value="0">
+            <small class="range-value" id="lineSpacingValue">Normal · 0 px</small>
+            <div class="two-col">
+              <div><label for="textColor">Color principal</label><input id="textColor" type="color" value="#ffffff"></div>
+              <div><label for="outlineColor">Contorno</label><input id="outlineColor" type="color" value="#111827"><div class="palette" data-palette-for="outlineColor">
+              <button type="button" data-color="#ffffff" style="--swatch:#ffffff" aria-label="Blanco"></button>
+              <button type="button" data-color="#ff315f" style="--swatch:#ff315f" aria-label="Rojo"></button>
+              <button type="button" data-color="#ff8a00" style="--swatch:#ff8a00" aria-label="Naranja"></button>
+              <button type="button" data-color="#ffe34d" style="--swatch:#ffe34d" aria-label="Amarillo"></button>
+              <button type="button" data-color="#7dff4f" style="--swatch:#7dff4f" aria-label="Verde"></button>
+              <button type="button" data-color="#21e6d6" style="--swatch:#21e6d6" aria-label="Turquesa"></button>
+              <button type="button" data-color="#35a7ff" style="--swatch:#35a7ff" aria-label="Azul"></button>
+              <button type="button" data-color="#8d5bff" style="--swatch:#8d5bff" aria-label="Violeta"></button>
+              <button type="button" data-color="#ff62d2" style="--swatch:#ff62d2" aria-label="Rosa"></button>
+              <button type="button" data-color="#a66a3f" style="--swatch:#a66a3f" aria-label="Marrón"></button>
+            </div></div>
+            </div>
+            <label>Paleta rápida de colores</label>
+            <div class="palette" data-palette-for="textColor">
+              <button type="button" data-color="#ffffff" style="--swatch:#ffffff" aria-label="Blanco"></button>
+              <button type="button" data-color="#ff315f" style="--swatch:#ff315f" aria-label="Rojo"></button>
+              <button type="button" data-color="#ff8a00" style="--swatch:#ff8a00" aria-label="Naranja"></button>
+              <button type="button" data-color="#ffe34d" style="--swatch:#ffe34d" aria-label="Amarillo"></button>
+              <button type="button" data-color="#7dff4f" style="--swatch:#7dff4f" aria-label="Verde"></button>
+              <button type="button" data-color="#21e6d6" style="--swatch:#21e6d6" aria-label="Turquesa"></button>
+              <button type="button" data-color="#35a7ff" style="--swatch:#35a7ff" aria-label="Azul"></button>
+              <button type="button" data-color="#8d5bff" style="--swatch:#8d5bff" aria-label="Violeta"></button>
+              <button type="button" data-color="#ff62d2" style="--swatch:#ff62d2" aria-label="Rosa"></button>
+              <button type="button" data-color="#a66a3f" style="--swatch:#a66a3f" aria-label="Marrón"></button>
+            </div>
+            <label for="theme">Estilo visual</label>
+            <select id="theme"><option value="red">Neón rojo y naranja</option><option value="blue">Neón azul y violeta</option><option value="gold">Dorado legendario</option><option value="halloween">Halloween oscuro</option><option value="green">Verde tóxico</option></select>
+            <label for="textEffect">Efecto del texto</label>
+            <select id="textEffect">
+              <option value="none">Sin brillo ni sombra</option>
+              <option value="glow" selected>Brillo neón</option>
+              <option value="shadow">Sombra suave</option>
+            </select>
+            <label for="animation">✨ Animación del texto (vista previa)</label>
+            <select id="animation">
+              <option value="none">Sin animación</option>
+              <option value="pulse">Pulso</option>
+              <option value="bounce">Rebote vertical</option>
+              <option value="slide">Deslizamiento lateral</option>
+              <option value="flicker">Parpadeo neón</option>
+              <option value="rainbow">Colores cambiantes</option>
+            </select>
+            <small class="hint">La animación se reproduce en la vista previa. La descarga PNG es una imagen fija.</small>
+            <div class="two-col">
+              <div><label for="background">Fondo</label><select id="background"><option value="gradient">Degradado gamer</option><option value="dark">Oscuro táctico</option><option value="fire">Fuego</option><option value="ocean">Energía azul</option><option value="transparent">Transparente</option></select></div>
+              <div><label for="glow">Brillo neón</label><input id="glow" type="range" min="0" max="40" value="22"></div>
+            </div>
+            <label class="upload-label" for="imageUpload">＋ Añadir imagen propia como fondo</label><input id="imageUpload" type="file" accept="image/*" class="file-input">
+            <div class="button-row"><button id="reset" class="secondary">Restablecer</button><button id="undo" class="secondary">↶ Deshacer</button><button id="redo" class="secondary">↷ Rehacer</button></div>
+            <button id="download" class="primary full-btn">⬇ Descargar miniatura PNG</button>
+            <p class="hint">Exporta en PNG según el formato seleccionado. El editor funciona localmente y no envía tus imágenes a ningún servidor.</p>
+          </section>
+
+          <section class="card preview-card">
+            <div class="card-heading"><span class="mini-icon">◉</span><div><h3>Vista previa de texto</h3><small>PREVISUALIZACIÓN EN TIEMPO REAL · 16:9</small></div></div>
+            <label for="formatSize">Formato de miniatura</label><select id="formatSize"><option value="landscape">Horizontal · Videos largos (16:9 · 1280 × 720)</option><option value="portrait">Vertical · Videos cortos (9:16 · 1080 × 1920)</option></select>
+            <div class="canvas-wrap" id="canvasWrap"><canvas id="artboard" width="1280" height="720" aria-label="Vista previa de miniatura"></canvas><div class="canvas-corner" id="canvasCorner">F2 · 16:9</div></div>
+            <div class="preview-meta"><span><i class="dot-green"></i> Vista previa actualizada</span><span id="dimensionLabel">1280 × 720 px</span></div>
+            <div class="project-tools">
+              <button id="saveProject" class="secondary">▣ Guardar proyecto</button>
+              <button id="exportJson" class="secondary">⇧ Exportar JSON</button>
+              <label class="secondary import-btn" for="importJson">⇩ Importar JSON</label><input id="importJson" type="file" accept="application/json" class="file-input">
+            </div>
+            <div class="history-box"><b>PROYECTO LOCAL</b><span id="saveStatus">Los cambios se guardan automáticamente en este dispositivo.</span></div>
+          </section>
+        </div>
+        </div><!-- /thumbPanel -->
+        <section id="imagePanel" class="tool-panel" hidden>
+          <div class="section-heading"><div><div class="slash">// <span>✂️</span></div><h2>Editor de imágenes</h2><p>Un espacio independiente para editar una imagen, ver cada cambio y añadir textos antes de exportarla.</p></div><span class="tag">● EDITOR INDEPENDIENTE</span></div>
+          <div class="image-workspace" style="margin-top:14px">
+            <section class="card controls">
+              <div class="card-heading"><span class="mini-icon">✂</span><div><h3>Herramientas de imagen</h3><small>IMPORTA · AJUSTA · PERSONALIZA</small></div></div>
+              <label for="standaloneUpload">＋ Importar imagen</label><input id="standaloneUpload" type="file" accept="image/*">
+              <div class="two-col"><div><label for="standaloneFit">Encuadre</label><select id="standaloneFit"><option value="contain">Mostrar completa</option><option value="cover">Rellenar / recortar</option></select></div><div><label for="standaloneRotate">Girar</label><select id="standaloneRotate"><option value="0">0°</option><option value="90">90°</option><option value="180">180°</option><option value="270">270°</option></select></div></div>
+              <div class="card-heading" style="margin-top:18px"><span class="mini-icon">▣</span><div><h3>Recortar imagen</h3><small>AJUSTA EL ÁREA QUE QUIERES CONSERVAR</small></div></div>
+              <div class="two-col"><div><label for="cropX">Izquierda (%)</label><input id="cropX" type="range" min="0" max="80" value="0"></div><div><label for="cropY">Arriba (%)</label><input id="cropY" type="range" min="0" max="80" value="0"></div></div>
+              <div class="two-col"><div><label for="cropW">Ancho (%)</label><input id="cropW" type="range" min="20" max="100" value="100"></div><div><label for="cropH">Alto (%)</label><input id="cropH" type="range" min="20" max="100" value="100"></div></div>
+              <button type="button" id="cropReset" class="secondary full-btn">Restablecer recorte</button>
+              <div class="card-heading" style="margin-top:18px"><span class="mini-icon">◌</span><div><h3>Fondo transparente</h3><small>ELIMINA UN COLOR DEL FONDO</small></div></div>
+              <div class="two-col"><div><label for="removeColor">Color que quieres quitar</label><input id="removeColor" type="color" value="#ffffff"></div><div><label for="removeTolerance">Tolerancia</label><input id="removeTolerance" type="range" min="0" max="180" value="45"></div></div>
+              <button type="button" id="removeBgBtn" class="secondary full-btn">✂ Eliminar fondo seleccionado</button>
+              <p class="hint">La zona eliminada queda transparente al exportar PNG. Funciona mejor con fondos de color uniforme.</p>
+              <button type="button" id="autoEnhance" class="primary full-btn">✨ Mejorar colores automáticamente</button>
+              <label for="standaloneScale">Tamaño de imagen</label><input id="standaloneScale" type="range" min="30" max="200" value="100">
+              <div class="two-col"><div><label for="standaloneBrightness">Brillo</label><input id="standaloneBrightness" type="range" min="0" max="200" value="100"></div><div><label for="standaloneContrast">Contraste</label><input id="standaloneContrast" type="range" min="0" max="200" value="100"></div></div>
+              <div class="two-col"><div><label for="standaloneSaturation">Saturación</label><input id="standaloneSaturation" type="range" min="0" max="200" value="100"></div><div><label for="standaloneBlur">Desenfoque</label><input id="standaloneBlur" type="range" min="0" max="10" value="0"></div></div>
+              <label for="standaloneFilter">Filtro</label><select id="standaloneFilter"><option value="none">Original</option><option value="grayscale(1)">Blanco y negro</option><option value="sepia(1)">Sepia</option><option value="hue-rotate(90deg)">Tono verde</option><option value="hue-rotate(180deg)">Tono azul</option></select>
+              <div class="card-heading" style="margin-top:18px"><span class="mini-icon">✦</span><div><h3>Ajustes avanzados</h3><small>CONTROLES DE COLOR Y DETALLE</small></div></div>
+              <div class="two-col"><div><label for="standaloneHue">Tono</label><input id="standaloneHue" type="range" min="-180" max="180" value="0"></div><div><label for="standaloneWarmth">Temperatura</label><input id="standaloneWarmth" type="range" min="-100" max="100" value="0"></div></div>
+              <div class="two-col"><div><label for="standaloneVignette">Viñeta</label><input id="standaloneVignette" type="range" min="0" max="100" value="0"></div><div><label for="standaloneFade">Desvanecer</label><input id="standaloneFade" type="range" min="0" max="100" value="0"></div></div>
+              <label for="imagePreset">Estilos rápidos</label><select id="imagePreset"><option value="custom">Personalizado</option><option value="auto">✨ Automático</option><option value="vivid">Colores vivos</option><option value="cinema">Cinemático</option><option value="warm">Cálido</option><option value="cool">Frío</option><option value="mono">Blanco y negro</option><option value="soft">Suave</option></select>
+              <div class="card-heading" style="margin-top:22px"><span class="mini-icon">T</span><div><h3>Añadir texto</h3><small>TEXTO SOBRE LA IMAGEN</small></div></div>
+              <label for="standaloneText">Texto</label><input id="standaloneText" maxlength="90" placeholder="Escribe tu texto aquí">
+              <div class="two-col"><div><label for="standaloneFont">Tipografía</label><select id="standaloneFont"><option value="Arial Black">Arial Black</option><option value="Impact">Impact</option><option value="Trebuchet MS">Trebuchet MS</option><option value="Georgia">Georgia</option></select></div><div><label for="standaloneTextSize">Tamaño</label><input id="standaloneTextSize" type="range" min="18" max="120" value="54"></div></div>
+              <div class="two-col"><div><label for="standaloneTextColor">Color de texto</label><input id="standaloneTextColor" type="color" value="#ffffff"></div><div><label for="standaloneOutline">Contorno</label><input id="standaloneOutline" type="color" value="#111111"></div></div>
+              <label for="standaloneTextPosition">Posición vertical del texto</label><input id="standaloneTextPosition" type="range" min="5" max="95" value="80">
+              <div class="button-row"><button id="standaloneReset" class="secondary">Restablecer ajustes</button><button id="standaloneClear" class="secondary">Quitar imagen</button></div>
+              <button id="standaloneDownload" class="primary full-btn">⬇ Descargar imagen PNG</button>
+              <p class="hint">Los cambios se muestran en la vista previa en tiempo real. Todo funciona localmente en tu dispositivo.</p>
+            </section>
+            <section class="card image-stage">
+              <div class="card-heading"><span class="mini-icon">◉</span><div><h3>Vista previa de imagen</h3><small>RESULTADO EN TIEMPO REAL</small></div></div>
+              <canvas id="standaloneCanvas" width="1200" height="900" aria-label="Vista previa del editor de imágenes"></canvas>
+              <div class="preview-meta"><span><i class="dot-green"></i> Cambios visibles al instante</span><span id="standaloneDimensions">1200 × 900 px</span></div>
+              <div class="image-toolbar"><button id="standaloneFitCanvas" class="secondary">Ajustar vista</button><button id="standaloneExportCopy" class="secondary">Descargar copia</button></div>
+            </section>
+          </div>
+        </section>
+        <section id="videoPanel" class="tool-panel" hidden>
+          <div class="section-heading"><div><div class="slash">// <span>🎬</span></div><h2>Editor de video</h2><p>Importa un video, ajusta su imagen, recorta el tiempo y exporta el resultado desde tu dispositivo.</p></div><span class="tag">● EDICIÓN LOCAL</span></div>
+          <div class="image-workspace" style="margin-top:14px">
+            <section class="card controls">
+              <div class="card-heading"><span class="mini-icon">▶</span><div><h3>Controles de video</h3><small>IMPORTA · AJUSTA · EXPORTA</small></div></div>
+              <label for="videoUpload">＋ Importar video</label><input id="videoUpload" type="file" accept="video/*">
+              <div class="two-col"><div><label for="videoBrightness">Brillo</label><input id="videoBrightness" type="range" min="0" max="200" value="100"></div><div><label for="videoContrast">Contraste</label><input id="videoContrast" type="range" min="0" max="200" value="100"></div></div>
+              <div class="two-col"><div><label for="videoSaturation">Saturación</label><input id="videoSaturation" type="range" min="0" max="250" value="100"></div><div><label for="videoBlur">Desenfoque</label><input id="videoBlur" type="range" min="0" max="8" value="0"></div></div>
+              <div class="two-col"><div><label for="videoHue">Tono</label><input id="videoHue" type="range" min="-180" max="180" value="0"></div><div><label for="videoWarmth">Temperatura</label><input id="videoWarmth" type="range" min="-100" max="100" value="0"></div></div>
+              <div class="two-col"><div><label for="videoVignette">Viñeta</label><input id="videoVignette" type="range" min="0" max="100" value="0"></div><div><label for="videoFade">Desvanecer</label><input id="videoFade" type="range" min="0" max="100" value="0"></div></div>
+              <label for="videoPreset">Ajuste automático / estilo</label><select id="videoPreset"><option value="custom">Personalizado</option><option value="auto">✨ Mejorar automáticamente</option><option value="vivid">Colores vivos</option><option value="cinema">Cinemático</option><option value="warm">Cálido</option><option value="cool">Frío</option><option value="mono">Blanco y negro</option><option value="soft">Suave</option></select>
+              <div class="card-heading" style="margin-top:18px"><span class="mini-icon">◷</span><div><h3>Recortar duración</h3><small>DEFINE EL INICIO Y EL FINAL</small></div></div>
+              <div class="two-col"><div><label for="videoStart">Inicio (segundos)</label><input id="videoStart" type="number" min="0" step="0.1" value="0"></div><div><label for="videoEnd">Final (segundos)</label><input id="videoEnd" type="number" min="0" step="0.1" value="0"></div></div>
+              <div class="two-col"><div><label for="videoSpeed">Velocidad</label><select id="videoSpeed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1× Normal</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></div><div><label for="videoVolume">Volumen</label><input id="videoVolume" type="range" min="0" max="100" value="100"></div></div>
+              <button type="button" id="videoAuto" class="primary full-btn">✨ Ajustar video automáticamente</button>
+              <button type="button" id="videoReset" class="secondary full-btn">Restablecer ajustes</button>
+              <button type="button" id="videoExport" class="primary full-btn">⬇ Exportar video editado</button>
+              <p class="hint">La exportación se graba en tiempo real y suele descargarse en WebM. Mantén esta pestaña abierta hasta que termine. La compatibilidad depende del navegador Android.</p>
+              <div class="history-box"><b>EXPORTACIÓN</b><span id="videoStatus">Importa un video para comenzar.</span></div>
+            </section>
+            <section class="card image-stage">
+              <div class="card-heading"><span class="mini-icon">◉</span><div><h3>Vista previa del video</h3><small>PREVISUALIZACIÓN CON FILTROS EN VIVO</small></div></div>
+              <video id="videoSource" playsinline controls style="display:none"></video>
+              <canvas id="videoCanvas" width="1280" height="720" style="display:block;width:100%;height:auto;max-height:70vh;object-fit:contain;background:#080f1c;border:2px solid #d98a47;border-radius:13px"></canvas>
+              <div class="image-toolbar"><button type="button" id="videoPlay" class="primary">▶ Reproducir</button><button type="button" id="videoPause" class="secondary">Ⅱ Pausar</button><button type="button" id="videoSeekStart" class="secondary">↤ Ir al inicio</button></div>
+              <div class="preview-meta"><span><i class="dot-green"></i> Vista previa</span><span id="videoTime">00:00 / 00:00</span></div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </div>
+    <footer>FUEGOff2 CREATOR EDITOR PRO <span>·</span> Miniaturas · Imágenes · Video · Tus diseños permanecen en tu dispositivo</footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id), canvas=$('artboard'),ctx=canvas.getContext('2d');
+const sizes={landscape:[1280,720],portrait:[1080,1920]};
+function dimensions(){return sizes[$('formatSize').value]||sizes.landscape}
+function setCanvasSize(){const [w,h]=dimensions();if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}const ratio=w+'/'+h;$('canvasWrap').style.setProperty('--preview-ratio',ratio);$('canvasWrap').style.aspectRatio=ratio;$('canvasCorner').textContent=w===1280?'F2 · 16:9':'F2 · 9:16';$('dimensionLabel').textContent=w+' × '+h+' px';$('canvasWrap').querySelector('canvas').style.aspectRatio=ratio;}
+const ids=['line1','line2','line3','fontFamily','fontSize','textColor','outlineColor','theme','background','glow','textEffect','lineSpacing','animation'];
+const themes={red:['#ff315f','#ff9b45','#271329'],blue:['#4bcfff','#a45cff','#111b43'],gold:['#ffe27a','#d17c2d','#3c2410'],halloween:['#ff7a2e','#b52e78','#25102d'],green:['#8dff59','#18c99a','#102d27']};
+let bgImage=null,selectedWord=null,wordColors={},undoStack=[],redoStack=[],lastState='',toastTimer;
+function state(){const o={};ids.forEach(id=>o[id]=$(id).value);o.wordColors={...wordColors};return o}
+function restore(s){ids.forEach(id=>{if(s[id]!==undefined)$(id).value=s[id]});wordColors={...(s.wordColors||{})};$('fontSizeValue').textContent=$('fontSize').value+' px';renderWords();draw()}
+function snapshot(){const s=JSON.stringify(state());if(s!==lastState){undoStack.push(lastState||s);if(undoStack.length>35)undoStack.shift();redoStack=[];lastState=s}}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2100)}
+function roundRect(c,x,y,w,h,r){c.beginPath();c.roundRect(x,y,w,h,r)}
+function background(){const kind=$('background').value,theme=themes[$('theme').value],[W,H]=dimensions();if(kind==='transparent'){ctx.clearRect(0,0,W,H);return}
+let g=ctx.createLinearGradient(0,0,W,H);
+if(kind==='dark'){g.addColorStop(0,'#080c18');g.addColorStop(1,'#18233c')}
+else if(kind==='fire'){g.addColorStop(0,'#160d22');g.addColorStop(.48,'#a52d25');g.addColorStop(1,'#ff9b35')}
+else if(kind==='ocean'){g.addColorStop(0,'#06182c');g.addColorStop(.55,'#14527a');g.addColorStop(1,'#261b52')}
+else{g.addColorStop(0,theme[2]);g.addColorStop(.55,'#101b31');g.addColorStop(1,'#070d1b')}
+ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+const glow=ctx.createRadialGradient(W*.22,H*.2,5,W*.22,H*.2,Math.max(W,H)*.48);glow.addColorStop(0,theme[0]+'66');glow.addColorStop(1,theme[0]+'00');ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);
+ctx.save();ctx.globalAlpha=.12;ctx.strokeStyle='#b8e8ff';ctx.lineWidth=2;for(let i=-H;i<W+H;i+=95){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i+H*.58,H);ctx.stroke()}ctx.restore();
+if(bgImage){ctx.save();ctx.globalAlpha=.48;cover(bgImage,0,0,W,H);ctx.restore()}
+}
+function cover(img,x,y,w,h){const r=Math.max(w/img.width,h/img.height),sw=w/r,sh=h/r,sx=(img.width-sw)/2,sy=(img.height-sh)/2;ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h)}
+function wrap(text,maxWidth,font){ctx.font=font;const words=text.trim().split(/\s+/).filter(Boolean),lines=[];let line='';for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);return lines.slice(0,2)}
+function draw(){setCanvasSize();const [W,H]=dimensions();background();
+if($('background').value!=='transparent'){ctx.save();ctx.strokeStyle=themes[$('theme').value][0];ctx.globalAlpha=.9;ctx.lineWidth=Math.max(5,Math.min(W,H)*.011);roundRect(ctx,14,14,W-28,H-28,Math.min(30,Math.min(W,H)*.025));ctx.stroke();ctx.restore()}
+ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';
+const font=$('fontFamily').value,size=Math.min(Number($('fontSize').value),H*.105),color=$('textColor').value,outline=$('outlineColor').value,glow=Number($('glow').value);
+const lines=ids.slice(0,3).map(id=>$(id).value.trim()).filter(Boolean);
+const total=lines.length,spacing=Number($('lineSpacing').value),step=Math.max(H*.055,size*1.2+spacing),start=H*.5-(total-1)*step/2;const effect=$('textEffect').value;
+lines.forEach((line,index)=>{const words=line.split(/\s+/);let current=words.join(' '),fs=size;ctx.font=`900 ${fs}px "${font}"`;while(ctx.measureText(current).width>W*.88&&fs>24){fs-=2;ctx.font=`900 ${fs}px "${font}"`}
+const mode=$('animation').value,t=performance.now()/1000;let y=start+index*step,xShift=0,scale=1,alpha=1;
+if(mode==='pulse')scale=1+0.055*Math.sin(t*3.2);if(mode==='bounce')y+=Math.sin(t*3.5)*Math.min(17,H*.012);if(mode==='slide')xShift=Math.sin(t*2.2)*Math.min(32,W*.025);if(mode==='flicker')alpha=0.62+0.38*Math.abs(Math.sin(t*8+index));
+ctx.save();ctx.translate(W/2+xShift,y);ctx.scale(scale,scale);ctx.translate(-W/2,-y);ctx.globalAlpha=alpha;ctx.textAlign='center';ctx.font=`900 ${fs}px "${font}"`;ctx.lineJoin='round';ctx.lineWidth=Math.max(5,fs*.12);ctx.strokeStyle=outline;ctx.shadowColor=effect==='shadow'?'#000000':themes[$('theme').value][0];ctx.shadowBlur=effect==='none'?0:(effect==='shadow'?14:glow);ctx.shadowOffsetX=effect==='shadow'?5:0;ctx.shadowOffsetY=effect==='shadow'?7:0;ctx.strokeText(current,W/2,y,W*.9);ctx.shadowBlur=0;ctx.shadowOffsetX=0;ctx.shadowOffsetY=0;
+const parts=current.split(' ');let widths=parts.map(w=>ctx.measureText(w).width),space=ctx.measureText(' ').width,totalW=widths.reduce((a,b)=>a+b,0)+space*(parts.length-1),x=W/2-totalW/2;parts.forEach((w,i)=>{ctx.textAlign='left';const hue=(t*85+i*48)%360;ctx.fillStyle=mode==='rainbow'?`hsl(${hue},100%,65%)`:(wordColors[w.toLowerCase()]||color);ctx.fillText(w,x,y);x+=widths[i]+space});ctx.restore();});ctx.restore();
+ctx.save();ctx.textAlign='center';ctx.font=`bold ${Math.max(14,Math.min(22,H*.018))}px Arial`;ctx.fillStyle='#ffffffcc';ctx.shadowColor='#000';ctx.shadowBlur=7;ctx.fillText('F U E G O F F 2',W/2,H-Math.max(42,H*.055));ctx.restore();}
+function renderWords(){const el=$('wordList'),words=[...new Set(ids.slice(0,3).flatMap(id=>$(id).value.trim().split(/\s+/).filter(Boolean)))];el.innerHTML='';if(!words.length){el.innerHTML='<span class="muted">Escribe un texto para editar sus palabras.</span>';return}words.forEach(w=>{const b=document.createElement('button');b.type='button';b.className='word-chip'+(selectedWord===w?' active':'');b.textContent=w;b.addEventListener('click',()=>{selectedWord=w;$('wordName').textContent='Palabra: '+w;$('wordColor').value=wordColors[w.toLowerCase()]||'#ffe36e';renderWords()});el.appendChild(b)})}
+function changed(){snapshot();$('fontSizeValue').textContent=$('fontSize').value+' px';$('lineSpacingValue').textContent=(Number($('lineSpacing').value)===0?'Normal':(Number($('lineSpacing').value)<0?'Juntas':'Separadas'))+' · '+$('lineSpacing').value+' px';renderWords();draw();localStorage.setItem('f2_thumb_autosave',JSON.stringify(state()));$('saveStatus').textContent='Guardado automático · '+new Date().toLocaleTimeString()}
+ids.forEach(id=>$(id).addEventListener('input',changed));$('formatSize').addEventListener('change',()=>{draw();toast('Formato actualizado: '+(dimensions()[0]===1280?'video largo 16:9':'video corto 9:16'))});document.addEventListener('click',e=>{const b=e.target.closest('.palette button[data-color]');if(!b)return;const palette=b.closest('[data-palette-for]');if(!palette)return;const target=palette.dataset.paletteFor;$(target).value=b.dataset.color;if(target==='wordColor'){if(!selectedWord){toast('Selecciona primero una palabra.');return;}wordColors[selectedWord.toLowerCase()] = b.dataset.color;renderWords();toast('Color aplicado a '+selectedWord);}else{changed();toast(target==='outlineColor'?'Color del contorno actualizado':'Color principal actualizado');}draw();});
+$('applyWord').addEventListener('click',()=>{if(!selectedWord)return toast('Selecciona una palabra primero.');wordColors[selectedWord.toLowerCase()]=$('wordColor').value;changed();toast('Color aplicado a '+selectedWord)});
+$('imageUpload').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const url=URL.createObjectURL(f),im=new Image();im.onload=()=>{bgImage=im;draw();toast('Imagen de fondo añadida')};im.src=url});
+$('undo').onclick=()=>{if(undoStack.length<2)return toast('No hay más cambios para deshacer.');redoStack.push(undoStack.pop());const prev=JSON.parse(undoStack[undoStack.length-1]);restore(prev);lastState=JSON.stringify(prev);toast('Cambio deshecho')};
+$('redo').onclick=()=>{if(!redoStack.length)return toast('No hay cambios para rehacer.');const s=redoStack.pop();undoStack.push(s);restore(JSON.parse(s));lastState=s;toast('Cambio restaurado')};
+$('reset').onclick=()=>{if(!confirm('¿Restablecer el diseño actual?'))return;ids.forEach(id=>{const el=$(id);if(el.type==='range')el.value=id==='fontSize'?78:22;else if(id==='line1')el.value='¡NUEVO EVENTO!';else if(id==='line2')el.value='EN FREE FIRE';else if(id==='line3')el.value='RECOMPENSAS GRATIS';else if(id==='fontFamily')el.value='Arial Black';else if(id==='textColor')el.value='#ffffff';else if(id==='outlineColor')el.value='#111827';else if(id==='theme')el.value='red';else if(id==='background')el.value='gradient';else if(id==='textEffect')el.value='glow';else if(id==='lineSpacing')el.value=0;else if(id==='animation')el.value='none'});wordColors={};bgImage=null;changed();toast('Diseño restablecido')};
+$('download').onclick=()=>{draw();const [w,h]=dimensions();canvas.toBlob(blob=>{if(!blob)return toast('No se pudo crear el PNG.');const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`FUEGOff2-miniatura-${w}x${h}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Miniatura PNG descargada')},'image/png')};
+$('saveProject').onclick=()=>{localStorage.setItem('f2_thumb_project',JSON.stringify(state()));toast('Proyecto guardado en este dispositivo')};
+$('exportJson').onclick=()=>downloadText(JSON.stringify(state(),null,2),'FUEGOff2-proyecto-miniatura.json','application/json');
+$('importJson').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{restore(JSON.parse(r.result));snapshot();toast('Proyecto importado')}catch(_){toast('El archivo JSON no es válido')}};r.readAsText(f);e.target.value=''};
+// Editor de imágenes independiente: no comparte el lienzo ni los controles de miniaturas.
+const imageCanvas=$('standaloneCanvas'),imageCtx=imageCanvas.getContext('2d');let standaloneImage=null;
+const imageIds=['standaloneFit','standaloneRotate','standaloneScale','standaloneBrightness','standaloneContrast','standaloneSaturation','standaloneBlur','standaloneFilter','standaloneText','standaloneFont','standaloneTextSize','standaloneTextColor','standaloneOutline','standaloneTextPosition','cropX','cropY','cropW','cropH','standaloneHue','standaloneWarmth','standaloneVignette','standaloneFade'];
+let processedImage=null;
+function drawStandalone(){const W=imageCanvas.width,H=imageCanvas.height;imageCtx.clearRect(0,0,W,H);imageCtx.fillStyle='#080f1c';imageCtx.fillRect(0,0,W,H);if(standaloneImage){const rot=Number($('standaloneRotate').value)*Math.PI/180,scale=Number($('standaloneScale').value)/100;imageCtx.save();imageCtx.translate(W/2,H/2);imageCtx.rotate(rot);imageCtx.scale(scale,scale);imageCtx.filter=`brightness(${$('standaloneBrightness').value}%) contrast(${$('standaloneContrast').value}%) saturate(${$('standaloneSaturation').value}%) blur(${$('standaloneBlur').value}px) hue-rotate(${$('standaloneHue').value}deg) ${$('standaloneFilter').value}`;const source=processedImage||standaloneImage,iw=source.naturalWidth||source.width,ih=source.naturalHeight||source.height,fit=$('standaloneFit').value,r=fit==='cover'?Math.max(W/iw,H/ih):Math.min(W/iw,H/ih),dw=iw*r,dh=ih*r,cx=Number($('cropX').value)/100,cy=Number($('cropY').value)/100,cw=Number($('cropW').value)/100,ch=Number($('cropH').value)/100,sx=Math.min(iw-1,iw*cx),sy=Math.min(ih-1,ih*cy),sw=Math.max(1,Math.min(iw-sx,iw*cw)),sh=Math.max(1,Math.min(ih-sy,ih*ch));imageCtx.drawImage(source,sx,sy,sw,sh,-dw/2,-dh/2,dw,dh);imageCtx.restore();
+// Ajustes de temperatura, desvanecido y viñeta aplicados sobre el lienzo final.
+const warmth=Number($('standaloneWarmth').value),fade=Number($('standaloneFade').value),vig=Number($('standaloneVignette').value);
+if(warmth){imageCtx.save();imageCtx.globalCompositeOperation='soft-light';imageCtx.fillStyle=warmth>0?`rgba(255,145,55,${Math.abs(warmth)/500})`:`rgba(55,145,255,${Math.abs(warmth)/500})`;imageCtx.fillRect(0,0,W,H);imageCtx.restore();}
+if(fade){imageCtx.save();imageCtx.globalAlpha=fade/300;imageCtx.fillStyle='#ffffff';imageCtx.fillRect(0,0,W,H);imageCtx.restore();}
+if(vig){imageCtx.save();const gr=imageCtx.createRadialGradient(W/2,H/2,Math.min(W,H)*.2,W/2,H/2,Math.max(W,H)*.72);gr.addColorStop(0,'transparent');gr.addColorStop(1,`rgba(0,0,0,${vig/100})`);imageCtx.fillStyle=gr;imageCtx.fillRect(0,0,W,H);imageCtx.restore();}
+}else{imageCtx.fillStyle='#8b9bb0';imageCtx.font='bold 28px Arial';imageCtx.textAlign='center';imageCtx.fillText('IMPORTA UNA IMAGEN PARA COMENZAR',W/2,H/2)}
+const txt=$('standaloneText').value.trim();if(txt){const size=Number($('standaloneTextSize').value),y=H*Number($('standaloneTextPosition').value)/100;imageCtx.save();imageCtx.textAlign='center';imageCtx.textBaseline='middle';imageCtx.font=`900 ${size}px "${$('standaloneFont').value}"`;imageCtx.lineJoin='round';imageCtx.lineWidth=Math.max(3,size*.1);imageCtx.strokeStyle=$('standaloneOutline').value;imageCtx.shadowColor='#000';imageCtx.shadowBlur=8;imageCtx.strokeText(txt,W/2,y,W*.9);imageCtx.shadowBlur=0;imageCtx.fillStyle=$('standaloneTextColor').value;imageCtx.fillText(txt,W/2,y,W*.9);imageCtx.restore();}}
+function downloadStandalone(){drawStandalone();imageCanvas.toBlob(blob=>{if(!blob)return toast('No se pudo exportar la imagen.');const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='FUEGOff2-editor-imagen.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200);toast('Imagen PNG descargada')},'image/png')}
+$('standaloneUpload').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{standaloneImage=im;processedImage=null;['cropX','cropY'].forEach(id=>$(id).value=0);['cropW','cropH'].forEach(id=>$(id).value=100);imageCanvas.width=Math.min(2400,Math.max(600,im.naturalWidth));imageCanvas.height=Math.min(2400,Math.max(600,im.naturalHeight));$('standaloneDimensions').textContent=imageCanvas.width+' × '+imageCanvas.height+' px';drawStandalone();URL.revokeObjectURL(u);toast('Imagen cargada en su editor independiente')};im.onerror=()=>toast('No se pudo abrir esa imagen');im.src=u;e.target.value=''});
+imageIds.forEach(id=>$(id).addEventListener('input',drawStandalone));
+$('cropReset').onclick=()=>{['cropX','cropY'].forEach(id=>$(id).value=0);['cropW','cropH'].forEach(id=>$(id).value=100);drawStandalone();toast('Recorte restablecido')};
+$('removeBgBtn').onclick=()=>{if(!standaloneImage)return toast('Primero importa una imagen');try{const w=standaloneImage.naturalWidth,h=standaloneImage.naturalHeight,off=document.createElement('canvas');off.width=w;off.height=h;const c=off.getContext('2d',{willReadFrequently:true});c.drawImage(standaloneImage,0,0);const d=c.getImageData(0,0,w,h),hex=$('removeColor').value,m=[parseInt(hex.slice(1,3),16),parseInt(hex.slice(3,5),16),parseInt(hex.slice(5,7),16)],tol=Number($('removeTolerance').value);for(let i=0;i<d.data.length;i+=4){const dist=Math.sqrt((d.data[i]-m[0])**2+(d.data[i+1]-m[1])**2+(d.data[i+2]-m[2])**2);if(dist<=tol*1.732)d.data[i+3]=0;}c.putImageData(d,0,0);processedImage=off;drawStandalone();toast('Fondo eliminado; el área queda transparente')}catch(err){toast('No se pudo procesar esta imagen')}};
+$('autoEnhance').onclick=()=>{if(!standaloneImage)return toast('Primero importa una imagen');$('standaloneBrightness').value=108;$('standaloneContrast').value=112;$('standaloneSaturation').value=128;$('standaloneBlur').value=0;$('standaloneFilter').value='none';drawStandalone();toast('Colores mejorados automáticamente')};
+function applyPreset(prefix,preset){const get=id=>$(prefix+id);const vals={auto:[108,112,128,0,4,5,0,0,'none'],vivid:[105,118,155,0,0,0,0,0,'none'],cinema:[96,128,112,0,-8,10,28,8,'none'],warm:[105,108,112,0,0,35,0,0,'none'],cool:[102,110,115,0,0,-35,0,0,'none'],mono:[100,115,0,0,0,0,0,0,'grayscale(1)'],soft:[108,92,105,1,0,0,0,15,'none']};const v=vals[preset];if(!v)return;const ids=['Brightness','Contrast','Saturation','Blur','Hue','Warmth','Vignette','Fade','Filter'];ids.forEach((k,i)=>{if(get(k))get(k).value=v[i]});}
+$('imagePreset').addEventListener('change',e=>{if(e.target.value==='custom')return;if(e.target.value==='auto'){$('autoEnhance').click();return}applyPreset('standalone',e.target.value);drawStandalone();toast('Estilo aplicado')});
+
+$('standaloneReset').onclick=()=>{imageIds.forEach(id=>{const el=$(id);if(el.type==='range')el.value=({standaloneScale:100,standaloneBrightness:100,standaloneContrast:100,standaloneSaturation:100,standaloneBlur:0,standaloneTextSize:54,standaloneTextPosition:80,cropX:0,cropY:0,cropW:100,cropH:100})[id]??100;else if(id==='standaloneFit')el.value='contain';else if(id==='standaloneRotate')el.value='0';else if(id==='standaloneFilter')el.value='none';else if(id==='standaloneText')el.value='';else if(id==='standaloneFont')el.value='Arial Black';else if(id==='standaloneTextColor')el.value='#ffffff';else if(id==='standaloneOutline')el.value='#111111'});drawStandalone();toast('Ajustes restablecidos')};
+$('standaloneClear').onclick=()=>{standaloneImage=null;processedImage=null;drawStandalone();toast('Imagen retirada')};$('standaloneDownload').onclick=downloadStandalone;$('standaloneExportCopy').onclick=downloadStandalone;$('standaloneFitCanvas').onclick=()=>{imageCanvas.style.maxHeight='70vh';drawStandalone();toast('Vista actualizada')};
+// Editor de video local. Usa canvas + MediaRecorder para grabar la previsualización procesada.
+const video=$('videoSource'),vCanvas=$('videoCanvas'),vctx=vCanvas.getContext('2d');let videoUrl=null,videoRAF=0,videoRecording=false;
+const vIds=['videoBrightness','videoContrast','videoSaturation','videoBlur','videoHue','videoWarmth','videoVignette','videoFade','videoPreset','videoSpeed','videoVolume'];
+function videoFilter(){return `brightness(${$('videoBrightness').value}%) contrast(${$('videoContrast').value}%) saturate(${$('videoSaturation').value}%) blur(${$('videoBlur').value}px) hue-rotate(${$('videoHue').value}deg)`}
+function drawVideo(){const W=vCanvas.width,H=vCanvas.height;vctx.fillStyle='#080f1c';vctx.fillRect(0,0,W,H);if(video.readyState>=2&&video.videoWidth){const r=Math.min(W/video.videoWidth,H/video.videoHeight),w=video.videoWidth*r,h=video.videoHeight*r;vctx.save();vctx.filter=videoFilter();vctx.drawImage(video,(W-w)/2,(H-h)/2,w,h);vctx.restore();const warmth=Number($('videoWarmth').value),fade=Number($('videoFade').value),vig=Number($('videoVignette').value);if(warmth){vctx.save();vctx.globalCompositeOperation='soft-light';vctx.fillStyle=warmth>0?`rgba(255,145,55,${Math.abs(warmth)/500})`:`rgba(55,145,255,${Math.abs(warmth)/500})`;vctx.fillRect(0,0,W,H);vctx.restore()}if(fade){vctx.save();vctx.globalAlpha=fade/300;vctx.fillStyle='#fff';vctx.fillRect(0,0,W,H);vctx.restore()}if(vig){vctx.save();const g=vctx.createRadialGradient(W/2,H/2,Math.min(W,H)*.2,W/2,H/2,Math.max(W,H)*.72);g.addColorStop(0,'transparent');g.addColorStop(1,`rgba(0,0,0,${vig/100})`);vctx.fillStyle=g;vctx.fillRect(0,0,W,H);vctx.restore()}}
+$('videoTime').textContent=`${fmtTime(video.currentTime)} / ${fmtTime(video.duration)}`;if(videoRecording&&video.currentTime>=Number($('videoEnd').value||video.duration)){video.pause();stopVideoRecord()}if(!video.paused&&!video.ended)videoRAF=requestAnimationFrame(drawVideo)}
+function fmtTime(t){if(!Number.isFinite(t))return '00:00';return `${String(Math.floor(t/60)).padStart(2,'0')}:${String(Math.floor(t%60)).padStart(2,'0')}`}
+function startVideoLoop(){cancelAnimationFrame(videoRAF);drawVideo()}
+$('videoUpload').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(videoUrl)URL.revokeObjectURL(videoUrl);videoUrl=URL.createObjectURL(f);video.src=videoUrl;video.onloadedmetadata=()=>{$('videoStart').value=0;$('videoEnd').value=video.duration.toFixed(1);vCanvas.width=Math.min(1920,video.videoWidth||1280);vCanvas.height=Math.min(1920,video.videoHeight||720);$('videoStatus').textContent=`Video cargado · ${fmtTime(video.duration)} · ${video.videoWidth}×${video.videoHeight}`;drawVideo()};video.onerror=()=>$('videoStatus').textContent='No se pudo abrir el video. Prueba MP4 H.264.';e.target.value=''});
+video.addEventListener('play',startVideoLoop);video.addEventListener('pause',()=>{cancelAnimationFrame(videoRAF);drawVideo()});video.addEventListener('seeked',drawVideo);vIds.forEach(id=>$(id).addEventListener('input',()=>{if(id==='videoVolume')video.volume=Number($(id).value)/100;drawVideo()}));
+$('videoPlay').onclick=()=>{if(!video.src)return toast('Primero importa un video');const st=Math.max(0,Number($('videoStart').value)||0);if(video.currentTime<st||video.currentTime>=Number($('videoEnd').value||video.duration))video.currentTime=st;video.playbackRate=Number($('videoSpeed').value);video.volume=Number($('videoVolume').value)/100;video.play().catch(()=>toast('Toca reproducir otra vez para permitir el video'))};$('videoPause').onclick=()=>video.pause();$('videoSeekStart').onclick=()=>{if(video.src){video.currentTime=Math.max(0,Number($('videoStart').value)||0);drawVideo()}};
+$('videoPreset').addEventListener('change',e=>{const preset=e.target.value;if(preset==='custom')return;const vals={auto:[108,112,128,0,4,5,0,0],vivid:[105,118,155,0,0,0,0,0],cinema:[96,128,112,0,-8,10,28,8],warm:[105,108,112,0,0,35,0,0],cool:[102,110,115,0,0,-35,0,0],mono:[100,115,0,0,0,0,0,0],soft:[108,92,105,1,0,0,0,15]}[preset];if(vals){['videoBrightness','videoContrast','videoSaturation','videoBlur','videoHue','videoWarmth','videoVignette','videoFade'].forEach((id,i)=>$(id).value=vals[i]);if(preset==='mono'){$('videoSaturation').value=0;$('videoContrast').value=115}}drawVideo();toast('Ajuste aplicado al video')});$('videoAuto').onclick=()=>{$('videoPreset').value='auto';$('videoPreset').dispatchEvent(new Event('change'))};
+$('videoReset').onclick=()=>{['videoBrightness','videoContrast','videoSaturation'].forEach(id=>$(id).value=100);['videoBlur','videoHue','videoWarmth','videoVignette','videoFade'].forEach(id=>$(id).value=0);$('videoSpeed').value=1;$('videoVolume').value=100;$('videoPreset').value='custom';video.playbackRate=1;video.volume=1;drawVideo();toast('Ajustes de video restablecidos')};
+function stopVideoRecord(){if(!videoRecording)return;videoRecording=false;try{if(window._f2Recorder&&window._f2Recorder.state!=='inactive')window._f2Recorder.stop()}catch(e){}}
+$('videoExport').onclick=async()=>{if(!video.src)return toast('Primero importa un video');if(!window.MediaRecorder||!vCanvas.captureStream)return toast('Tu navegador no permite exportar video editado. Prueba Chrome actualizado.');if(videoRecording)return;const start=Math.max(0,Number($('videoStart').value)||0),end=Math.min(video.duration,Number($('videoEnd').value)||video.duration);if(end<=start)return toast('El tiempo final debe ser mayor que el inicio');const stream=vCanvas.captureStream(30);try{if(video.captureStream){const vs=video.captureStream();vs.getAudioTracks().forEach(t=>stream.addTrack(t))}}catch(e){}let mime='video/webm;codecs=vp9';if(!MediaRecorder.isTypeSupported(mime))mime='video/webm';if(!MediaRecorder.isTypeSupported(mime))mime='';let recorder;try{recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined)}catch(e){return toast('No se pudo iniciar la exportación en este navegador')}window._f2Recorder=recorder;const chunks=[];recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};recorder.onstop=()=>{const blob=new Blob(chunks,{type:recorder.mimeType||'video/webm'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='FUEGOff2-video-editado.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);stream.getTracks().forEach(t=>t.stop());$('videoStatus').textContent='Exportación terminada. Archivo WebM descargado.';toast('Video exportado')};videoRecording=true;recorder.start(250);video.currentTime=start;video.playbackRate=Number($('videoSpeed').value);video.volume=Number($('videoVolume').value)/100;try{await video.play()}catch(e){videoRecording=false;recorder.stop();return toast('Permite la reproducción para exportar')}drawVideo();$('videoStatus').textContent='Exportando en tiempo real… no cierres esta pestaña.'};
+
+function switchPanel(which){const thumb=which==='thumb',img=which==='image';$('thumbPanel').hidden=!thumb;$('imagePanel').hidden=!img;$('videoPanel').hidden=which!=='video';[['tabThumb',thumb],['tabImage',img],['tabVideo',which==='video']].forEach(([id,on])=>{$(id).classList.toggle('active',on);$(id).setAttribute('aria-selected',String(on))});if(img)drawStandalone();if(which==='video')drawVideo()}
+$('tabThumb').onclick=()=>switchPanel('thumb');$('tabImage').onclick=()=>switchPanel('image');$('tabVideo').onclick=()=>switchPanel('video');drawStandalone();drawVideo();
+function downloadText(text,name,type){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([text],{type}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+try{const saved=JSON.parse(localStorage.getItem('f2_thumb_autosave')||'null');if(saved)restore(saved)}catch(e){}
+snapshot();renderWords();setCanvasSize();draw();
+(function animationLoop(){if($('animation').value!=='none')draw();requestAnimationFrame(animationLoop)})();
+})();
+</script>
+</body>
+</html>
