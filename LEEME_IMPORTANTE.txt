@@ -1,0 +1,15 @@
+FUEGOff2 Creator Hub — paquete corregido
+
+ARCHIVOS
+- FUEGOff2_Creator_Hub_17_5_1.html: plataforma principal basada en el archivo que compartiste.
+- FUEGOff2_ADMIN_1_0.html: copia independiente de interfaz ADMIN, conserva los controles de acceso que ya tenía el archivo original.
+- ORIGINAL_FUEGOff2_Creator_Hub_17_5-1_BACKUP.html: respaldo byte por byte del archivo recibido.
+
+DÓNDE ENCONTRAR LAS NUEVAS HERRAMIENTAS
+- Al abrir Creator Hub, en la portada aparece el bloque NUEVAS HERRAMIENTAS.
+- También aparecen en el menú inmediatamente después de Inicio: NOTICIAS e IA GLOBAL.
+
+NOTICIAS permite guardar título, descripción, URL de imagen/video y enlace relacionado en el almacenamiento local de ese navegador. IA GLOBAL organiza tareas y conserva contexto local; todavía no conecta modelos externos ni aprende colectivamente entre usuarios.
+
+IMPORTANTE
+Los datos locales no se sincronizan entre dispositivos. Para eso hace falta configurar un backend seguro. La interfaz ADMIN conserva la autenticación/visibilidad original, pero la separación visual de archivos no sustituye la autorización del servidor.
