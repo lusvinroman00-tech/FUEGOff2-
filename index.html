@@ -751,8 +751,7 @@ function advOpen15(i){const x=advProjectsRead15()[i];if(!x)return;document.getEl
 function advDelete15(i){const a=advProjectsRead15();a.splice(i,1);localStorage.setItem('f2_adv_projects_15',JSON.stringify(a));advProjectsRender15();}
 function advDownload15(){const lang=document.getElementById('advLang15').value,ext={python:'py',php:'php',java:'java',c:'c',cpp:'cpp',sql:'sql',json:'json',xml:'xml',md:'md',bash:'sh'}[lang];const blob=new Blob([document.getElementById('advCode15').value],{type:'text/plain;charset=utf-8'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=(document.getElementById('advName15').value.trim().replace(/[^\w-]+/g,'_')||'proyecto')+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 function advClear15(){document.getElementById('advCode15').value='';document.getElementById('advOutput15').textContent='Editor limpio.';}
-function advRun15(){const lang=document.getElementById('advLang15').value,code=document.getElementById('advCode15').value,out=document.getElementById('advOutput15'),frame=document.getElementById('advPreview15');frame.srcdoc='<!doctype html><meta charset="utf-8"><body style="font:14px monospace;padding:12px">Vista previa\n</body>\n
-</body></html>';document.getElementById('academyTagHint155').textContent='Ejemplo ejecutado en vista previa aislada. Prueba los controles y cambia el código para aprender qué hace cada parte.';}
+function advRun15(){const lang=document.getElementById('advLang15').value,code=document.getElementById('advCode15').value,out=document.getElementById('advOutput15'),frame=document.getElementById('advPreview15');frame.srcdoc='<!doctype html><meta charset="utf-8"><body style="font:14px monospace;padding:12px">Vista previa</body></html>';document.getElementById('academyTagHint155').textContent='Ejemplo ejecutado en vista previa aislada. Prueba los controles y cambia el código para aprender qué hace cada parte.';}
 function academyResetTag155(){academyExplainTag155();}
 function academyImproveTag155(){const d=academyTagData155[document.getElementById('academyTagSelect155').value];document.getElementById('academyTagHint155').textContent='Ideas para mejorarlo: '+d.improve+' Después de hacer los cambios, ejecuta otra vez y compara el resultado.';}
 const academy15=[['¿Qué es programar?','Programar es dar instrucciones ordenadas a una computadora para resolver una tarea.','Piensa en una receta: cada paso indica qué hacer.','¿Qué describe mejor un programa?',['Un conjunto de instrucciones','Una pieza del monitor','Una conexión Wi-Fi'],0],['Variables en Python','Una variable guarda un dato con un nombre. Ejemplo: nombre = "FUEGOff2".','Puedes cambiar el valor de una variable durante el programa.','¿Qué guarda una variable?',['Solo imágenes','Un dato','Electricidad'],1],['Condiciones','Las condiciones permiten tomar decisiones. En Python: if edad >= 18:','El programa ejecuta un bloque si la condición se cumple.','¿Para qué sirve if?',['Repetir siempre','Tomar decisiones','Guardar archivos'],1],['Bucles','Un bucle repite instrucciones. En Python puedes usar for o while.','Úsalos cuando una tarea deba repetirse.','¿Qué hace un bucle?',['Repite instrucciones','Apaga la PC','Cambia el teclado'],0],['HTML básico','HTML organiza el contenido de una página con etiquetas como h1, p y button.','Ejemplo: <h1>Hola</h1> crea un encabezado.','¿Qué define HTML?',['La estructura del contenido','La velocidad de internet','El color del teclado'],0],['CSS básico','CSS controla la presentación: colores, tamaños, espacios y distribución.','Ejemplo: p { color: red; }','¿Para qué sirve CSS?',['Guardar datos','Estilizar páginas','Crear bases eléctricas'],1],['JavaScript básico','JavaScript añade comportamiento e interacción a una página web.','Ejemplo: alert("Hola"); muestra un aviso.','¿Qué añade JavaScript?',['Interactividad','Memoria RAM','Cableado'],0],['JSON y datos','JSON representa datos mediante pares clave-valor y listas.','Ejemplo: {"nombre":"FUEGOff2"}.','¿Qué formato usa JSON?',['Solo etiquetas HTML','Pares clave-valor','Archivos de audio'],1]];
@@ -2807,7 +2806,7 @@ window.F2InstallExpandedKnowledge=install;
 })();
 </script>
 
-<!-- FUEGOff2 v17.5-30: robust one-time removal of legacy collaboration post dated 2025 -->
+<!-- FUEGOff2 v17.5-31: robust one-time removal of legacy collaboration post dated 2025 -->
 <script id="f2-remove-legacy-collab-2025-fix-v17530">
 (()=>{
  'use strict';
@@ -2831,6 +2830,27 @@ window.F2InstallExpandedKnowledge=install;
   rows.splice(idx,1); localStorage.setItem(KEY,JSON.stringify(rows));
   console.info('[FUEGOff2] Se eliminó una colaboración antigua de 2025 y se guardó el respaldo local.');
  }catch(e){console.warn('[FUEGOff2] Falló la eliminación automática de la colaboración:',e);}
+})();
+</script>
+
+<!-- FUEGOff2 v17.5-33: noticia textual OB57 insertada fuera de los scripts principales -->
+<!-- FUEGOff2: noticia textual OB57 Jujutsu Kaisen, única inserción y siempre arriba por timestamp -->
+<script id="f2-news-text-ob57-jujutsu-20261122">
+(()=>{
+  'use strict';
+  const KEY='fuegoff2_news_v1';
+  const ID='f2-text-ob57-jujutsu-2027-04';
+  const TITLE='Jujutsu Kaisen podría regresar en la OB57';
+  const BODY='🚨 Jujutsu Kaisen podría regresar a Free Fire en la OB57, prevista para abril de 2027. 🔥\nRecuerda que, por ahora, se trata de información anticipada y no de una confirmación oficial.';
+  try{
+    const rows=JSON.parse(localStorage.getItem(KEY)||'[]');
+    if(!Array.isArray(rows))return;
+    if(rows.some(x=>String(x?.id||'')===ID || (String(x?.title||'').trim()===TITLE && String(x?.text||'').includes('abril de 2027'))))return;
+    const now=Date.now(), iso=new Date(now).toISOString();
+    rows.push({id:ID,title:TITLE,text:BODY,date:new Date(now).toLocaleDateString('es-GT',{day:'numeric',month:'long',year:'numeric'}),timestamp:now,createdAt:iso,addedAt:iso,uploadedAt:iso,type:'text',platform:'text'});
+    localStorage.setItem(KEY,JSON.stringify(rows));
+    if(typeof window.f2NewsRender==='function')window.f2NewsRender();
+  }catch(err){console.warn('[FUEGOff2] No se pudo guardar la noticia OB57:',err);}
 })();
 </script>
 </body>
