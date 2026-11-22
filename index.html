@@ -2548,4 +2548,126 @@ const migrate=()=>{if(window.F2UnifiedKnowledge?.migrateLegacyAndRemoveOld){cons
 })();
 </script>
 
+\n<script id="f2-expanded-ai-knowledge-v20">
+// Biblioteca inicial ampliada: conocimientos de trabajo compartidos por todas las IAs locales.
+(()=>{'use strict';
+const KEY='f2_ai_knowledge_seed_v20';
+const knowledge=[
+['general','Responde en el idioma del usuario. Si escribe en español, utiliza español latinoamericano natural, claro y fácil de entender. Evita tecnicismos innecesarios y explica cualquier término técnico la primera vez.'],
+['general','Antes de responder, identifica qué solicita exactamente el usuario, conserva sus restricciones explícitas y entrega primero el resultado más útil. No hagas preguntas si la información disponible ya permite avanzar.'],
+['general','No inventes datos, fechas, cifras, nombres, enlaces, fuentes, resultados de pruebas ni capacidades. Si un dato no está confirmado, dilo claramente y separa hechos, estimaciones e hipótesis.'],
+['general','Cuando la pregunta dependa de información reciente, verifica la fecha y la fuente disponible. Prioriza fuentes oficiales y recientes; si solo hay rumores, etiquétalos como rumores o filtraciones no confirmadas.'],
+['general','Si una instrucción es ambigua, pregunta únicamente el dato imprescindible. No conviertas una suposición en una preferencia permanente del usuario.'],
+['general','Da instrucciones paso a paso cuando el usuario esté solucionando un problema técnico. Incluye qué debe tocar, qué resultado debería ver y qué hacer si no aparece.'],
+['general','Cuando una respuesta anterior fue incorrecta, reconoce el error sin discutir, identifica la causa si se conoce y entrega la corrección concreta.'],
+['general','No solicites ni guardes contraseñas, códigos de verificación, tokens, claves privadas ni datos financieros sensibles.'],
+['general','Distingue entre una recomendación, una instrucción del usuario y un hecho comprobado. Las preferencias expresadas directamente por el usuario tienen prioridad sobre sugerencias generales.'],
+['creator','Para crear contenido social, ofrece un inicio que capte atención, un mensaje central fácil de entender y un cierre o llamada a la acción cuando sea apropiado. Evita relleno y repeticiones.'],
+['creator','Al preparar títulos, descripciones y hashtags, mantén relación directa con el contenido real. No uses etiquetas engañosas ni prometas resultados o recompensas que no estén confirmados.'],
+['creator','Para guiones de videos cortos, prioriza frases breves, ritmo ágil, información ordenada y una duración coherente con la cantidad de texto.'],
+['creator','Al resumir noticias para creadores, conserva nombres, fechas, cantidades, condiciones y advertencias importantes. No cambies el sentido de la publicación original.'],
+['creator','Al adaptar una noticia a TikTok, Shorts o Reels, conserva los datos esenciales y adapta únicamente el formato, la duración y el tono. No inventes declaraciones ni atribuyas citas.'],
+['creator','Cuando el usuario solicite una miniatura o imagen promocional, respeta el texto exacto, la jerarquía visual, los colores y las referencias que haya proporcionado. No añadas palabras no solicitadas.'],
+['free_fire','En temas de Free Fire y Garena, diferencia siempre entre información oficial, anuncios regionales, pruebas, filtraciones y rumores de la comunidad. Indica el estado de confirmación.'],
+['free_fire','Los eventos, recompensas, precios, fechas y disponibilidad de Free Fire pueden variar por región y servidor. No presentes una fecha o recompensa como universal si no está confirmado para la región correspondiente.'],
+['free_fire','Cuando expliques una recarga, evento, ruleta, pase o sistema de diamantes, detalla requisitos, costos, límites, fechas y condiciones de uso solo cuando estén respaldados por la fuente.'],
+['free_fire','No asegures que una filtración de Free Fire llegará al juego. Usa expresiones como “según la filtración”, “podría llegar” o “aún no está confirmado” cuando corresponda.'],
+['platform','FUEGOff2 Creator Hub debe conservar sus módulos, botones, herramientas, imágenes, datos y enlaces existentes al actualizarse, salvo petición explícita del usuario para retirarlos.'],
+['platform','El proyecto Creator Hub debe funcionar localmente y priorizar almacenamiento del navegador. No añadir APIs, servidores, Supabase ni servicios de terceros sin autorización explícita del usuario.'],
+['platform','Antes de modificar Creator Hub, inspecciona la última versión funcional disponible. Realiza cambios aditivos y evita reemplazar bloques completos cuando un parche pequeño sea suficiente.'],
+['platform','Después de modificar archivos, valida sintaxis de scripts, integridad de enlaces y recursos, estructura del ZIP y que index.html esté en la raíz. No afirmes haber probado en Android o navegador si no se hizo esa prueba real.'],
+['platform','En Creator Hub, preservar íntegramente los enlaces TikTok originales y cualquier enlace que ya exista. No acortar, normalizar, sustituir ni eliminar enlaces durante una actualización.'],
+['platform','La memoria compartida de Creator Hub es almacenamiento local del navegador. No se sincroniza automáticamente entre dispositivos, perfiles o navegadores sin un mecanismo de sincronización autorizado.'],
+['platform','La memoria compartida aporta contexto recuperable a las IAs; no significa que un modelo neuronal haya sido reentrenado ni que sus pesos hayan cambiado.'],
+['platform','Las noticias de Creator Hub deben tratarse como un inventario cronológico mixto: imágenes, banners, textos, videos y enlaces. Ordenar por fecha y hora real, sin priorizar un tipo de publicación.'],
+['platform','Para publicaciones nuevas, guardar la fecha, hora y timestamp reales al momento de crear la publicación. Nunca inventar fechas históricas cuando no exista un registro verificable.'],
+['platform','Al mostrar una noticia con imagen o banner, presentar la imagen original como imagen; al mostrar una publicación de TikTok, conservarla como enlace. No reemplazar un formato por otro.'],
+['platform','Antes de migrar memorias, conservar las fuentes originales y verificar que la copia central se haya guardado correctamente. No borrar datos antiguos como parte de una migración automática.'],
+['platform','Las aportaciones rechazadas o pendientes deben conservar su estado durante una migración. Una calificación negativa no es por sí sola un hecho ni una instrucción detallada: úsala como señal para revisar el enfoque.'],
+['correction','Las correcciones explícitas del usuario tienen prioridad sobre inferencias automáticas. Guarda la corrección como regla reutilizable solo si expresa una preferencia o instrucción aplicable en el futuro.'],
+['correction','Una calificación 👍 indica que la respuesta fue útil en ese contexto; refuerza el enfoque, pero no convierte automáticamente cada afirmación de la respuesta en un hecho verificado.'],
+['correction','Una calificación 👎 indica que la respuesta no satisfizo al usuario. Revisa la pregunta, el contexto y cualquier corrección escrita; no repitas el mismo enfoque sin reconsiderarlo.'],
+['correction','Si el usuario proporciona una corrección después de un 👎, registra la corrección concreta y úsala en respuestas futuras relacionadas. No inventes cuál fue el error si el usuario no lo explicó.'],
+['preferencias','Mantén un tono amable, respetuoso, directo y colaborativo. Varía los saludos de forma natural y evita repetir la misma frase en cada conversación.'],
+['preferencias','No llames al usuario por su nombre salvo que lo solicite expresamente. Evita saludos demasiado largos cuando el usuario pide una tarea concreta.'],
+['preferencias','Cuando el usuario pide un archivo actualizado, entrega el archivo individual y el ZIP para GitHub cuando sea posible; el ZIP debe contener index.html en su raíz.'],
+['preferencias','Al trabajar sobre proyectos existentes, la prioridad es conservar lo que ya funciona y añadir lo solicitado sin eliminar funciones, datos, enlaces o diseño.']
+];
+function install(){try{if(!window.F2LocalBrain?.submitKnowledge)return false;const existing=window.F2LocalBrain.getAll().map(x=>String(x.content||'').trim().toLowerCase());let added=0;for(const [category,content] of knowledge){if(existing.includes(content.toLowerCase()))continue;window.F2LocalBrain.submitKnowledge(content,{category,source:'Biblioteca ampliada de conocimiento · v17.5-20'});existing.push(content.toLowerCase());added++;}localStorage.setItem(KEY,JSON.stringify({version:'17.5-20',installedAt:new Date().toISOString(),added,total:knowledge.length}));window.F2UnifiedKnowledge?.render?.();window.F2LocalBrain.render?.();window.F2KnowledgeSeedV20={total:knowledge.length,added};return true;}catch(e){console.warn('No se pudo instalar toda la biblioteca de conocimiento:',e);return false}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(install,900),{once:true});else setTimeout(install,900);
+window.F2InstallExpandedKnowledge=install;
+})();
+</script>
+
+<!-- FUEGOff2 17.5-22: resultados compactos (3 iniciales, máximo 5) en búsqueda contextual de Noticias -->
+<script id="f2-news-contextual-learning-search-v21">
+(()=>{'use strict';
+ const norm=s=>String(s??'').toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+ const stop=new Set(['de','del','la','el','los','las','un','una','y','en','por','para','con','que','me','muestra','mostrar','busca','buscar','quiero','ver','dame','envia','mandame','comparte','compartir','publicacion','publicaciones','noticia','noticias','contenido','mas','reciente','recientes','ultimo','ultima','ultimos','ultimas']);
+ const words=q=>norm(q).split(' ').filter(w=>w.length>1&&!stop.has(w));
+ const getItems=()=>{try{const a=window.F2NewsChronology?.getAll?.();if(Array.isArray(a))return a;}catch(_){}try{const a=JSON.parse(localStorage.getItem('fuegoff2_news_v1')||'[]');return Array.isArray(a)?a:[];}catch(_){return[]}};
+ const date=x=>{const v=x?.timestamp||x?.addedAt||x?.uploadedAt||x?.createdAt||x?.publishedAt||x?.date;if(!v)return 0;const n=typeof v==='number'?(v<1e12?v*1000:v):Date.parse(v);return Number.isFinite(n)?n:0};
+ const title=x=>String(x?.title||x?.name||x?.heading||x?.caption||'Publicación');
+ const text=x=>String(x?.text||x?.description||x?.caption||x?.summary||'');
+ const link=x=>String(x?.link||x?.url||x?.externalUrl||x?.videoUrl||'');
+ function search(q){
+  const query=words(q);if(!query.length)return null;
+  const all=getItems();if(!all.length)return null;
+  const ranked=all.map((x,i)=>{const hay=norm([title(x),text(x),x?.category,x?.tags,x?.type,x?.platform,link(x)].join(' '));let score=0;for(const w of query){if(hay.includes(w))score+=w.length>=7?3:2;}const full=norm(title(x)+' '+text(x));const nq=norm(q);if(nq.includes('pase booyah')&&/pase booyah/.test(full))score+=10;if(nq.includes('diciembre')&&/diciembre|december|dec/i.test(full))score+=4;return {x,i,score,ts:date(x)};}).filter(z=>z.score>0);
+  if(!ranked.length)return null;
+  // Primero determina relevancia; después prioriza la fecha más reciente entre coincidencias equivalentes.
+  ranked.sort((a,b)=>b.score-a.score||(b.ts-a.ts)||(a.i-b.i));
+  const bestScore=ranked[0].score;let chosen=ranked.filter(z=>z.score>=Math.max(2,bestScore-2));
+  chosen.sort((a,b)=>{if(a.ts&&b.ts)return b.ts-a.ts;if(a.ts)return -1;if(b.ts)return 1;return a.i-b.i;});
+  // Nunca saturar el chat: 3 resultados iniciales y hasta 2 adicionales bajo petición.
+  const total=chosen.slice(0,5);if(!total.length)return null;
+  window.F2ChatBatchFull=total.map(z=>{const x=z.x;return {newsId:x.id!=null?String(x.id):(x.__f2Key||null),imageIndex:Number.isInteger(x.imageIndex)?x.imageIndex:null,title:title(x),text:text(x),date:z.ts?new Date(z.ts).toLocaleString('es-GT',{dateStyle:'medium',timeStyle:'short'}):'Fecha histórica no registrada'};});
+  window.F2ChatBatchKind='news-search';window.F2ChatBatchCursor=Math.min(3,total.length);
+  const first=total.slice(0,3);
+  const batchItems=first.map((z,i)=>{const x=z.x;const id=x.id!=null?String(x.id):(x.__f2Key||null);const imageIndex=Number.isInteger(x.imageIndex)?x.imageIndex:null;const kind=x.type==='tiktok-link'?'Enlace de TikTok':x.type==='video'?'Video':(x.type==='image'||x.type==='weekly-image'?'Imagen / banner':'Publicación');const t=z.ts?new Date(z.ts).toLocaleString('es-GT',{dateStyle:'medium',timeStyle:'short'}):'Fecha histórica no registrada';return {newsId:id,imageIndex,title:title(x),text:`${i+1}. ${title(x)}\n${kind} · ${t}${text(x)?'\n'+text(x):''}${link(x)?'\n'+link(x):''}`};});
+  const more=total.length>first.length?' Si no está lo que buscas, pide “mostrar 2 más” para ver hasta 2 coincidencias adicionales.':'';
+  return {text:`🔎 Busqué en la sesión Noticias lo relacionado con: “${String(q).trim()}”. Encontré ${ranked.length} coincidencia(s); te muestro las 3 más recientes (o menos si hay menos resultados), ordenadas por fecha. Máximo 5 resultados por búsqueda. Cada publicación conserva su formato original.${more}`,batchItems,topic:'Búsqueda relacionada en Noticias',query:String(q).trim()};
+ }
+ function nextResults(q){
+  const n=norm(q);if(!/\b(mas|siguientes|otras|restantes|amplia|ampliar|mostrar|muestra|ver)\b/.test(n)||!/(\b2\b|mas|siguientes|otras|restantes)/.test(n))return null;
+  const full=window.F2ChatBatchFull;if(!Array.isArray(full)||window.F2ChatBatchKind!=='news-search')return null;
+  const cursor=Number(window.F2ChatBatchCursor||0);const next=full.slice(cursor,Math.min(5,cursor+2));if(!next.length)return {text:'Ya te mostré las coincidencias disponibles para esta búsqueda (máximo 5).'};
+  window.F2ChatBatchCursor=cursor+next.length;
+  return {text:`Aquí tienes ${next.length} coincidencia(s) adicional(es), sin repetir y siguiendo el orden de más reciente a más antigua.`,batchItems:next.map((x,i)=>({newsId:x.newsId,imageIndex:x.imageIndex,title:x.title,text:`${cursor+i+1}. ${x.title}\n${x.date}${x.text?'\n'+x.text:''}`})),topic:'Más resultados de Noticias'};
+ }
+ const previous=window.learningBuildReply;
+ if(typeof previous==='function'&&!previous.__f2ContextualNewsV21){const wrapped=function(q){const extra=nextResults(q);if(extra)return extra;const n=norm(q);const newsContext=/\b(pase|booyah|ruleta|boveda|evento|recarga|diamantes|skin|arma|mochila|pared|emote|incubadora|free fire|garena|diciembre|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|noticia|publicacion|banner|filtracion|leak)\b/.test(n);if(newsContext){const found=search(q);if(found)return found;}return previous.apply(this,arguments);};wrapped.__f2ContextualNewsV21=true;window.learningBuildReply=wrapped;}
+ window.F2NewsContextualSearch={version:'17.5-22',search,query:search};
+ console.info('[FUEGOff2] Búsqueda contextual de Noticias v22 activa: 3 iniciales, máximo 5.');
+})();
+</script>
+<script id="f2-news-date-intent-rules-v23">
+(()=>{'use strict';
+ const MONTHS={enero:0,febrero:1,marzo:2,abril:3,mayo:4,junio:5,julio:6,agosto:7,septiembre:8,setiembre:8,octubre:9,noviembre:10,diciembre:11};
+ const norm=s=>String(s??'').toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+ const all=()=>{try{const a=window.F2NewsChronology?.getAll?.();if(Array.isArray(a))return a;}catch(_){}try{const a=JSON.parse(localStorage.getItem('fuegoff2_news_v1')||'[]');return Array.isArray(a)?a:[]}catch(_){return[]}};
+ const stamp=x=>{try{const n=window.F2NewsChronology?.getTimestamp?.(x);if(Number.isFinite(n)&&n>0)return n;}catch(_){}for(const k of ['publishedAt','createdAt','timestamp','updatedAt','addedAt','uploadedAt','date']){const v=x?.[k];if(typeof v==='number'&&v>0)return v<1e12?v*1000:v;if(v){const n=Date.parse(v);if(Number.isFinite(n))return n;}}return 0};
+ const title=x=>String(x?.title||x?.name||x?.heading||x?.caption||'Publicación');
+ const body=x=>String(x?.text||x?.description||x?.caption||x?.summary||'');
+ const link=x=>String(x?.link||x?.url||x?.externalUrl||x?.videoUrl||'');
+ const now=Date.now(),fourMonths=new Date(now);fourMonths.setMonth(fourMonths.getMonth()-4);const cutoff4=fourMonths.getTime(),cutoff7=now-7*86400000;
+ function intent(q){const n=norm(q);const month=Object.keys(MONTHS).find(m=>new RegExp('\\b'+m+'\\b').test(n));const yearMatch=n.match(/\b(20\d{2})\b/);const week=/agenda semanal|proxima agenda|agenda de la semana|eventos anticipados|eventos de la proxima semana|proximos eventos/.test(n);const update=/actualizacion|ob\s*\d{2,3}|0b\s*\d{2,3}|version ob/.test(n);const version=(n.match(/\b(?:ob|0b)\s*(\d{2,3})\b/)||[])[1];return {n,month,year:yearMatch?Number(yearMatch[1]):null,week,update,version};}
+ function search(q){const it=intent(q),words=it.n.match(/[a-z0-9]{3,}/g)||[];let rows=all().map((x,i)=>{const ts=stamp(x),hay=norm([title(x),body(x),x?.category,x?.tags,x?.type,x?.platform,link(x)].join(' '));let score=0;for(const w of words){if(hay.includes(w))score+=w.length>=7?3:2;}return{x,i,ts,hay,score};});
+  if(it.week){rows=rows.filter(z=>z.ts>=cutoff7&&z.ts<=now&&/(evento|agenda|seman|anticip|proxim|pase|ruleta|recarga|skin|emote|free fire)/.test(z.hay));}
+  if(it.month){rows=rows.filter(z=>{const d=z.ts?new Date(z.ts):null;const monthHit=new RegExp('\\b'+it.month+'\\b').test(z.hay)||(d&&d.getMonth()===MONTHS[it.month]);return monthHit&&(!it.year||(d&&d.getFullYear()===it.year));});if(!it.year&&rows.length){const years=rows.map(z=>z.ts?new Date(z.ts).getFullYear():0).filter(Boolean);const newestYear=years.length?Math.max(...years):0;if(newestYear)rows=rows.filter(z=>z.ts&&new Date(z.ts).getFullYear()===newestYear);}}
+  if(it.update){rows=rows.filter(z=>z.ts>=cutoff4&&z.ts<=now&&/(actualizacion|ob\s*\d{2,3}|0b\s*\d{2,3}|version|parche|beta|advance server)/.test(z.hay));if(it.version){const re=new RegExp('\\b(?:ob|0b)\\s*'+it.version+'\\b');rows=rows.filter(z=>re.test(z.hay));}else if(rows.length){const versions=rows.map(z=>{const m=z.hay.match(/\b(?:ob|0b)\s*(\d{2,3})\b/);return m?Number(m[1]):0;});const latest=Math.max(...versions);if(latest)rows=rows.filter(z=>new RegExp('\\b(?:ob|0b)\\s*'+latest+'\\b').test(z.hay));}}
+  rows=rows.filter(z=>z.score>0||it.week||it.month||it.update);
+  if(!rows.length)return null;
+  rows.sort((a,b)=>b.ts-a.ts||b.score-a.score||a.i-b.i);
+  const selected=rows.slice(0,5);window.F2ChatBatchFull=selected.map(z=>({newsId:z.x.id!=null?String(z.x.id):(z.x.__f2Key||null),imageIndex:Number.isInteger(z.x.imageIndex)?z.x.imageIndex:null,title:title(z.x),text:body(z.x),date:z.ts?new Date(z.ts).toLocaleString('es-GT',{dateStyle:'medium',timeStyle:'short'}):'Fecha histórica no registrada'}));window.F2ChatBatchKind='news-search';window.F2ChatBatchCursor=Math.min(3,selected.length);
+  const batchItems=selected.slice(0,3).map((z,i)=>{const x=z.x,kind=x.type==='tiktok-link'?'Enlace de TikTok':x.type==='video'?'Video':(['image','weekly-image'].includes(x.type)?'Imagen / banner':'Publicación'),d=z.ts?new Date(z.ts).toLocaleString('es-GT',{dateStyle:'medium',timeStyle:'short'}):'Fecha histórica no registrada';return{newsId:x.id!=null?String(x.id):(x.__f2Key||null),imageIndex:Number.isInteger(x.imageIndex)?x.imageIndex:null,title:title(x),text:`${i+1}. ${title(x)}\n${kind} · ${d}${body(x)?'\n'+body(x):''}${link(x)?'\n'+link(x):''}`};});
+  let rule=it.week?'Agenda semanal: solo publicaciones de los últimos 7 días (se permiten eventos próximos ya publicados).':it.month?`Mes solicitado: ${it.month}${it.year?' de '+it.year:' del año más reciente disponible'}.`:it.update?`Actualización: ${it.version?'OB'+it.version:'versión más reciente identificada'}; solo información de los últimos 4 meses.`:'Coincidencias más recientes primero.';
+  return{text:`🔎 Tu pregunta: “${String(q).trim()}”. ${rule} Encontré ${rows.length} resultado(s); muestro hasta 3 primero y un máximo de 5, ordenados del más reciente al más antiguo.${selected.length>3?' Si necesitas más, pide “mostrar 2 más”.':''}`,batchItems,topic:'Búsqueda contextual de Noticias',query:String(q).trim()};
+ }
+ function next(q){const n=norm(q);if(!/\b(mas|siguientes|otras|restantes|ampliar|mostrar|muestra|ver)\b/.test(n)||!/\b(2|mas|siguientes|otras|restantes)\b/.test(n))return null;const full=window.F2ChatBatchFull;if(!Array.isArray(full)||window.F2ChatBatchKind!=='news-search')return null;const c=Number(window.F2ChatBatchCursor||0),arr=full.slice(c,Math.min(5,c+2));if(!arr.length)return{text:'Ya te mostré todos los resultados disponibles para esta búsqueda (máximo 5).'};window.F2ChatBatchCursor=c+arr.length;return{text:`Aquí tienes ${arr.length} resultado(s) adicional(es), sin repetir.`,batchItems:arr.map((x,i)=>({newsId:x.newsId,imageIndex:x.imageIndex,title:x.title,text:`${c+i+1}. ${x.title}\n${x.date}${x.text?'\n'+x.text:''}`})),topic:'Más resultados de Noticias'};}
+ const previous=window.learningBuildReply;if(typeof previous==='function'&&!previous.__f2NewsDateRules23){const wrapped=function(q){const more=next(q);if(more)return more;const it=intent(q);if(it.week||it.month||it.update){const result=search(q);if(result)return result;return{text:it.week?'No encontré publicaciones de agenda/eventos dentro de los últimos 7 días. No mostraré noticias más antiguas como si fueran recientes.':it.month?`No encontré noticias relacionadas con ${it.month}${it.year?' de '+it.year:''} en el año más reciente disponible.`:'No encontré información de esa actualización publicada en los últimos 4 meses. No usaré información antigua como si fuera actual.'};}return previous.apply(this,arguments);};wrapped.__f2NewsDateRules23=true;window.learningBuildReply=wrapped;}
+ window.F2NewsDateRules={version:'17.5-23',search,intent};console.info('[FUEGOff2] Reglas temporales de Noticias v23 activas.');
+})();
+
+</script>
 </body></html>
