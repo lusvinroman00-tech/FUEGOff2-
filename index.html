@@ -2754,7 +2754,7 @@ window.F2InstallExpandedKnowledge=install;
    const rows=JSON.parse(localStorage.getItem('fuegoff2_news_v1')||'[]');
    const item=Array.isArray(rows)?rows.find(x=>String(x?.id)===String(btn.dataset.id)):null;
    if(!item)return 0;
-   for(const key of ['timestamp','createdAt','publishedAt','uploadedAt','addedAt','date','updatedAt']){
+   for(const key of ['addedAt','uploadedAt','uploadTime','uploadTimestamp','createdAt','created_at','added_at','timestamp','publishedAt','date','updatedAt']){
     const stamp=parseStamp(item[key]);if(stamp)return stamp;
    }
   }catch(_){}
@@ -2776,5 +2776,6 @@ window.F2InstallExpandedKnowledge=install;
  renderUnified();
  console.info('[FUEGOff2] Noticias: banners, fotos, textos, videos y enlaces en una sola cronología descendente.');
 })();
+<!-- FUEGOff2 v17.5-17: ordenar Noticias por fecha de incorporación, no por fecha original -->
 </script>
 </body>
